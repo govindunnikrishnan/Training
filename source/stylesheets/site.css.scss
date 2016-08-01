@@ -1,5 +1,9 @@
 @charset "utf-8";
 @import "normalize";
+@import "b";
+/*importing another file-sass training*/
+$comment: "-sass training";
+$pcolor: 'white';
 body {
     background: #ECC561;
     text-align: center;
@@ -7,23 +11,19 @@ body {
     font-size: 1em;
 }
 
-.newstyle {
-    background: #FFE4C4;
-    text-align: center;
-    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1em;
-}
-
-.logo img {
-    height: 18.75em;
-    margin-top: 6em;
+.logo {
+    img {
+        height: 18.75em;
+        margin-top: 6em;
+    }
 }
 
 h1 {
     color: rgba(0, 0, 0, 0.5);
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1.8em;
-    font-weight: 400;
+    font-size: 1.8em*2;
+    /*operators used-$comment*/
+    font-weight: 200*2;
     margin: 0;
 }
 
@@ -32,21 +32,30 @@ h1 {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1.1em;
     font-weight: 300;
+    /*nesting-$comment*/
     a {
-        border: 1px solid white;
+        border: 1px solid $pcolor;
         border-radius: 3px;
         padding: 0.75em 0.7em;
-        color: white;
+        color: $pcolor;
         text-decoration: none;
         transition: color 0.1s linear;
+        /*referencing parent selectors-$comment*/
         &:hover {
             background: rgba(0, 0, 0, 0.2);
-            color: white;
+            color: $pcolor;
             transition: all 0.15s linear;
         }
     }
 }
-
+.funky {
+    @extend .doc; /*Extend/Inheritance*/
+  font: {   /*Nested Properties*/
+    family: fantasy;
+    size: 1.6em;
+    weight: bold;
+  }
+}
 .welcome {
     -webkit-animation-name: welcome;
     -webkit-animation-duration: .9s;
